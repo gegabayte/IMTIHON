@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  background: transparent;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+  box-shadow: 0px 2px 2px lightgray;
+}
+
+.header__container {
+  z-index: 2000;
+  padding: 0px 81px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__container #dark__mode {
+  cursor: pointer;
+}
+.header__container h4 {
+  text-align: center;
+  font-weight: 800px;
+  font-size: 24px;
+}
+.header__container a {
+  text-decoration: none;
+  color: black;
+}
+
+.hero__container {
+  padding: 0px 81px;
+  padding-top: 60px;
+}
+.hero__container .hero__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero__container .hero__head p {
+  color: black;
+  position: relative;
+  left: 30px;
+  font-size: 18px;
+  opacity: 0.5;
+  top: 38px;
+}
+.hero__container .hero__head input {
+  padding: 18px 74px;
+  width: 480px;
+  border: none;
+  box-shadow: 0px 2px 2px rgb(242, 240, 240), 2px 0px 2px rgb(242, 240, 240), 0px -2px 2px rgb(242, 240, 240), -2px 0px 2px rgb(242, 240, 240);
+  border-radius: 5px;
+  background: transparent;
+}
+.hero__container .hero__head select {
+  background: transparent;
+  box-shadow: 0px 2px 2px rgb(242, 240, 240), 2px 0px 2px rgb(242, 240, 240), 0px -2px 2px rgb(242, 240, 240), -2px 0px 2px rgb(242, 240, 240);
+  max-width: 200px;
+  height: 56px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 5px;
+}
+.hero__container .hero__hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+.hero__container .hero__card {
+  margin-top: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background: #2B3844;
+  z-index: 1;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.hero__container .hero__card .hero__card--child p span {
+  opacity: 0.8;
+}
+.hero__container .hero__card .hero__card--child {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 15px;
+  width: 264px;
+}
+.hero__container .hero__card .hero__card--child h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+.hero__container .hero__card .hero__card--child p {
+  margin-bottom: 5px;
+}
+.hero__container .hero__card .hero__card--child a {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+.hero__container .hero__card:hover {
+  transform: scale(1.05);
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 75px;
+  height: 75px;
+  border: 10px dotted rgba(89, 196, 90, 0.6);
+  border-radius: 50%;
+  border-left-color: blue;
+  border-right-color: blue;
+  border-top-color: white;
+  border-bottom-color: blue;
+  animation: loader 0.75s ease infinite;
+}
+
+@keyframes loader {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.section__container {
+  padding: 81px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 81px;
+}
+.section__container button {
+  border-radius: 4px;
+  padding: 8px 20px;
+  border: none;
+  box-shadow: 0px 2px 2px rgb(242, 240, 240), 2px 0px 2px rgb(242, 240, 240), 0px -2px 2px rgb(242, 240, 240), -2px 0px 2px rgb(242, 240, 240);
+  background: white;
+  cursor: pointer;
+}
+.section__container button a {
+  text-decoration: none;
+  color: black;
+  margin-left: 4px;
+}
+.section__container .section__hero {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.section__container .section__hero--data--block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+}
+.section__container .section__hero--data--block h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+.section__container .section__hero--data--block .section__team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 135px;
+}
+.section__container .section__hero--data--block .section__team .section__hero--data--block1 p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.section__container .section__hero--data--block .section__team .section__hero--data--block2 p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.section__container .section__hero--data--block3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 90px;
+}
+.section__container .section__hero--data--block3 .section__btn--part button {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 824px) {
+  .hero__container {
+    padding: 0px 60px;
+    position: relative;
+  }
+  .hero__container select {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+  }
+  .hero__container input {
+    max-width: 250px;
+  }
+  .hero__container .hero__hero {
+    margin-top: 80px;
+  }
+  .section__container {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 716px) {
+  .hero__container {
+    padding: 0px 60px;
+    position: relative;
+  }
+  .hero__container select {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+  }
+  .hero__container input {
+    max-width: 250px;
+  }
+  .hero__container .hero__hero {
+    margin-top: 80px;
+  }
+  .section__container {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 658px) {
+  .section__container {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 610px) {
+  .container {
+    max-width: 580px;
+  }
+  .hero__container {
+    gap: 0px 50px;
+  }
+  .hero__container input {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .container {
+    max-width: 320px;
+  }
+  .header__container {
+    padding: 0px 10px;
+  }
+  .header__container h4 {
+    font-size: 14px;
+  }
+  .hero__container {
+    padding: 0px 10px;
+    position: relative;
+  }
+  .hero__container select {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+  }
+  .hero__container input {
+    max-width: 250px;
+  }
+  .hero__container .hero__hero {
+    margin-top: 80px;
+  }
+}/*# sourceMappingURL=styles.css.map */
