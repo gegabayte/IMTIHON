@@ -66,20 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => {
         data.data.forEach((country) => {
             let card = createCard(country);
-            hero.innerHTML += card
-            const heroDiv = document.querySelector("#hero__card");
-            darkMode && darkMode.addEventListener('click' ,function (e) {
-                e.preventDefault();
-                if (darkMode.classList.toggle("darkMode")) {
-                   heroDiv.style.background = '#2B3844'
-                } else {
-                    heroDiv.style.background = 'white'
-                    heroDiv.style.boxShadow = ''
-                    
-            
-                }
-                document.body.classList.toggle("darkMode");
-            })
+            hero.innerHTML += card;
                 hero && hero.addEventListener('click', function ()  {
                     let fullUrl = window.location.href;
                     let index = fullUrl.search('index');

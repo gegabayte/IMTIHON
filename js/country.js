@@ -9,7 +9,7 @@ const i = document.querySelector("#i");
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
 const btn3 = document.querySelector("#btn3");
-const section = document.querySelector("#section");
+const text = document.querySelector("#text");
 
 
 
@@ -41,9 +41,6 @@ darkMode && darkMode.addEventListener("click", (e) => {
         document.body.style.color = 'white'
         document.body.style.transition = '0.8s'
         hd.style.transition = '0.4s'
-        btn1.style.transition = '0.8s'
-        btn2.style.transition = '0.8s'
-        btn3.style.transition = '0.8s'
         btn.style.transition = '0.8s'
         btn.style.background = '#2B3844'
         header.style.background = '#2B3844'
@@ -51,32 +48,35 @@ darkMode && darkMode.addEventListener("click", (e) => {
         hd.style.boxShadow = 'none'
         btn.style.boxShadow = 'none'
         btn1.style.boxShadow = 'none'
-        btn2.style.boxShadow = 'none'
-        btn3.style.boxShadow = 'none'
+        btn1.style.transition = '0.8s'
         btn1.style.background = '#2B3844'
-        btn2.style.background = '#2B3844'
-        btn3.style.background = '#2B3844'
         btn1.style.color = 'white'
+        btn2.style.boxShadow = 'none'
+        btn2.style.transition = '0.8s'
+        btn2.style.background = '#2B3844'
         btn2.style.color = 'white'
+        btn3.style.boxShadow = 'none'
+        btn3.style.background = '#2B3844'
+        btn3.style.transition = '0.8s'
         btn3.style.color = 'white'
         i.style.color = 'white'
         a.style.color = 'white'
     } else {
+        document.body.style.color = 'black'
+        document.body.style.background = 'white'
         i.style.color = 'black'
         a.style.color = 'black'
         btn.style.color = 'black'
         btn.style.background = 'white'
-        document.body.style.background = 'white'
         btn.style.boxShadow = ''
-        document.body.style.color = 'black'
         header.style.background = 'white'
         hd.style.background = 'white'
         hd.style.boxShadow = ''
         btn1.style.background = 'white'
-        btn2.style.background = 'white'
-        btn3.style.background = 'white'
         btn1.style.color = 'black'
+        btn2.style.background = 'white'
         btn2.style.color = 'black'
+        btn3.style.background = 'white'
         btn3.style.color = 'black'
     }
     document.body.classList.toggle("darkMode");
