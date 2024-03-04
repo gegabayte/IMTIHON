@@ -34,5 +34,17 @@ function createeCard (cout) {
        </div>
     `
 }
+function createCard(country) {
+    return `
+        <div id="hero__card" class="hero__card" data-id="${country.area}">
+        <img src="${country.flags.png}" alt="Flag photo" width="267" height="160">
+        <div class="hero__card--child">
+        <h4 id="name">${country.name.common}</h4>
+            <p>Population: <span>${country.population.toLocaleString("en-IN")}</span></p>
+            <p>Region: <span>${country.region}</span></p>
+            <p>Capital: <span>${country.capital}</span></p>
+        </div>
+    `
+}
 
-export { createeCard , createCard }
+export { createeCard ,  createCard }

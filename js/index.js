@@ -1,3 +1,4 @@
+import { createCard } from "./function.js";
 const darkMode = document.querySelector('#dark__mode');
 const search = document.querySelector('#Search');
 const select = document.querySelector('#select');
@@ -48,18 +49,7 @@ darkMode && darkMode.addEventListener("click", (e) => {
     document.body.classList.toggle("darkMode");
 });
 
-function createCard(country) {
-    return `
-        <div id="hero__card" class="hero__card" data-id="${country.area}">
-        <img src="${country.flags.png}" alt="Flag photo" width="267" height="160">
-        <div class="hero__card--child">
-        <h4 id="name">${country.name.common}</h4>
-            <p>Population: <span>${country.population.toLocaleString("en-IN")}</span></p>
-            <p>Region: <span>${country.region}</span></p>
-            <p>Capital: <span>${country.capital}</span></p>
-        </div>
-    `
-}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch(`https://frontend-mentor-apis-6efy.onrender.com/countries`, {
@@ -95,15 +85,15 @@ search.addEventListener("keyup", function () {
       .then((data) => data.json())
       .then((data) => {
         hero.innerHTML = "";
-        data.data.forEach((el) => {
+        data.data.forEach((country) => {
           let card = `
-          <div id="hero__card" class="hero__card" data-id="${el.area}">
-          <img src="${el.flags.png}" alt="Flag photo" width="267" height="160">
+          <div id="hero__card" class="hero__card" data-id="${country.area}">
+          <img src="${country.flags.png}" alt="Flag photo" width="267" height="160">
           <div class="hero__card--child">
-          <h4 id="name">${el.name.common}</h4>
-              <p>Population: <span>${el.population.toLocaleString("en-IN")}</span></p>
-              <p>Region: <span>${el.region}</span></p>
-              <p>Capital: <span>${el.capital}</span></p>
+          <h4 id="name">${country.name.common}</h4>
+              <p>Population: <span>${country.population.toLocaleString("en-IN")}</span></p>
+              <p>Region: <span>${country.region}</span></p>
+              <p>Capital: <span>${country.capital}</span></p>
           </div>
       `;
           hero.innerHTML += card;

@@ -91,7 +91,7 @@ body {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background: #2B3844;
+  background: transparent;
   z-index: 1;
   transition: all 0.5s;
   cursor: pointer;

@@ -1,3 +1,4 @@
+import { createeCard } from "./function.js";
 const darkMode = document.querySelector('#dark__mode');
 const header = document.querySelector("#header");
 const hd = document.querySelector("#hd");
@@ -37,6 +38,7 @@ darkMode && darkMode.addEventListener("click", (e) => {
         btn2.style.transition = '0.8s'
         btn3.style.transition = '0.8s'
         btn.style.transition = '0.8s'
+        btn.style.background = '#2B3844'
         header.style.background = '#2B3844'
         hd.style.background = '#2B3844'
         hd.style.boxShadow = 'none'
@@ -44,7 +46,6 @@ darkMode && darkMode.addEventListener("click", (e) => {
         btn1.style.boxShadow = 'none'
         btn2.style.boxShadow = 'none'
         btn3.style.boxShadow = 'none'
-        btn.style.background = '#2B3844'
         btn1.style.background = '#2B3844'
         btn2.style.background = '#2B3844'
         btn3.style.background = '#2B3844'
@@ -74,56 +75,4 @@ darkMode && darkMode.addEventListener("click", (e) => {
     document.body.classList.toggle("darkMode");
 });
 
-function createeCard (cout) {
-    return `
-    <div class="section__hero--img--part">
-                <img src="${cout.flags.png}" width="560" height="401" alt="">
-            </div>
-            <div class="section__hero--data">
-                <div class="section__hero--data--block">
-                    <h1>${cout.name.common}</h1>
-                   <div class="section__team">
-                    <div class="section__hero--data--block1">
-                        <p>Native Name: ${cout.name.nativeName}</p>
-                            <p>Population: ${cout.population}</p>
-                           <p>Region: ${cout.region}</p>
-                            <p>Sub Region: ${cout.subregion}</p>
-                            <p>Capital: ${cout.country.capital[0]}</p>
-                    </div>
-                    <div class="section__hero--data--block2">
-                        <p>Top Level Domain: ${cout.cioc}</p>
-                        <p>Currencies: ${cout.currencies}{</p>
-                        <p>Languages: ${cout}, ${cout}, ${cout}</p>
-                    </div>
-                   </div>
-                </div>
-                <div class="section__hero--data--block3">
-                    <h1>Border Countries: ${cout}</h1>
-                    <div class="section__btn--part">
-                        <button id="btn1">${cout}</button>
-                        <button id="btn2">${cout}</button>
-                        <button id="btn3">${cout}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </div>
-    `
-}
 
-document.addEventListener("DOMContentLoaded", function() {
-    let slug = window.location.href.substring(window.location.href.search("id=")+3);
-
-    fetch(`https://frontend-mentor-apis-6efy.onrender.com/countries/${slug}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (slug == data.name.slug) {
-                let tr = createeCard(data);
-                section.innerHTML = tr;
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
-});
