@@ -1,4 +1,4 @@
-import { createeCard } from "./function.js";
+import { createCount } from "./function.js";
 const darkMode = document.querySelector('#dark__mode');
 const header = document.querySelector("#header");
 const hd = document.querySelector("#hd");
@@ -9,7 +9,7 @@ const i = document.querySelector("#i");
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
 const btn3 = document.querySelector("#btn3");
-const text = document.querySelector("#text");
+const section = document.querySelector("#section");
 
 
 
@@ -26,9 +26,9 @@ window.addEventListener("load", (e) => {
 //back orqaga qaytish index sahifaga otish.
 btn && btn.addEventListener('click', function () {
     let fullUrl = window.location.href;
-                    let index = fullUrl.search('index');
-                    let beseUrl = fullUrl.substring(0, index);
-                    window.location.assign(`${beseUrl}/index.html`);
+    let index = fullUrl.search('index');
+    let beseUrl = fullUrl.substring(0, index);
+    window.location.assign(`${beseUrl}/index.html`);
 })
 
 

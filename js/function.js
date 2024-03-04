@@ -1,4 +1,4 @@
-function createeCard (cout) {
+function createCount (cout) {
     return `
     <div class="section__hero--img--part">
                 <img src="${cout.flags.png}" width="560" height="401" alt="">
@@ -47,4 +47,4 @@ function createCard(country) {
     `
 }
 
-export { createeCard ,  createCard }
+export { createCount ,  createCard }

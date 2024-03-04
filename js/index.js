@@ -46,7 +46,6 @@ darkMode && darkMode.addEventListener("click", (e) => {
         header.style.background = 'white'
         hd.style.background = 'white'
         hd.style.boxShadow = ''
-        hd.style.zIndex = '2000'
 
     }
     document.body.classList.toggle("darkMode");
@@ -85,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
 // Qidiruv Davlatlarni qidiradi.
 search.addEventListener("keyup", function () {
     let value = search.value;
-    fetch(
-      `https://frontend-mentor-apis-6efy.onrender.com/countries?search=${value}`
-    )
+    fetch(`https://frontend-mentor-apis-6efy.onrender.com/countries?search=${value}`, {
+        method: "GET"
+    })
       .then((data) => data.json())
       .then((data) => {
         hero.innerHTML = "";
@@ -102,7 +101,7 @@ search.addEventListener("keyup", function () {
 });
 
 
-
+//filter Region boyicha saraleydi
 select.addEventListener('change', function() {
     let value = select.value
 
