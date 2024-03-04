@@ -12,6 +12,8 @@ const btn3 = document.querySelector("#btn3");
 const section = document.querySelector("#section");
 
 
+
+//Loader
 window.addEventListener("load", (e) => {
     e.preventDefault();
     mask.classList.add("loader--hidin");
@@ -20,6 +22,8 @@ window.addEventListener("load", (e) => {
     }, 2000);
 });
 
+
+//back orqaga qaytish index sahifaga otish.
 btn && btn.addEventListener('click', function () {
     let fullUrl = window.location.href;
                     let index = fullUrl.search('index');
@@ -27,6 +31,9 @@ btn && btn.addEventListener('click', function () {
                     window.location.assign(`${beseUrl}/index.html`);
 })
 
+
+
+//Dark Mode.
 darkMode && darkMode.addEventListener("click", (e) => {
     e.preventDefault();
     if (darkMode.classList.toggle("darkMode")) {

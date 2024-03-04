@@ -8,7 +8,7 @@ const header = document.querySelector("#header");
 const hd = document.querySelector("#hd");
 
 
-
+//Loader
 window.addEventListener("load", (e) => {
     e.preventDefault();
     mask.classList.add("loader--hidin");
@@ -17,6 +17,8 @@ window.addEventListener("load", (e) => {
     }, 2000);
 });
 
+
+//Dark Mode
 darkMode && darkMode.addEventListener("click", (e) => {
     e.preventDefault();
     if (darkMode.classList.toggle("darkMode")) {
@@ -34,6 +36,7 @@ darkMode && darkMode.addEventListener("click", (e) => {
         hd.style.transition = '0.4s'
         
     } else {
+        select.style.color = 'black'
         search.style.background = '#fff'
         select.style.background = '#fff'
         search.style.boxShadow = ''
@@ -50,20 +53,33 @@ darkMode && darkMode.addEventListener("click", (e) => {
 });
 
 
-
+//250ta malumotni olib kelb yuvay ga chiqarish
 document.addEventListener('DOMContentLoaded', function () {
     fetch(`https://frontend-mentor-apis-6efy.onrender.com/countries`, {
         method: "GET"
     })
-        .then(res => {
-            if (res.status == 200) {
-                return res.json();
-            }
-        })
-        .then(data => {
-            data.data.forEach((country) => {
-                let card = createCard(country);
-                hero.innerHTML += card
+    .then(res => {
+        if (res.status == 200) {
+            return res.json();
+        }
+    })
+    .then(data => {
+        data.data.forEach((country) => {
+            let card = createCard(country);
+            hero.innerHTML += card
+            const heroDiv = document.querySelector("#hero__card");
+            darkMode && darkMode.addEventListener('click' ,function (e) {
+                e.preventDefault();
+                if (darkMode.classList.toggle("darkMode")) {
+                   heroDiv.style.background = '#2B3844'
+                } else {
+                    heroDiv.style.background = 'white'
+                    heroDiv.style.boxShadow = ''
+                    
+            
+                }
+                document.body.classList.toggle("darkMode");
+            })
                 hero && hero.addEventListener('click', function ()  {
                     let fullUrl = window.location.href;
                     let index = fullUrl.search('index');
@@ -77,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 })
 
+
+
+// Qidiruv Davlatlarni qidiradi.
 search.addEventListener("keyup", function () {
     let value = search.value;
     fetch(
@@ -86,16 +105,7 @@ search.addEventListener("keyup", function () {
       .then((data) => {
         hero.innerHTML = "";
         data.data.forEach((country) => {
-          let card = `
-          <div id="hero__card" class="hero__card" data-id="${country.area}">
-          <img src="${country.flags.png}" alt="Flag photo" width="267" height="160">
-          <div class="hero__card--child">
-          <h4 id="name">${country.name.common}</h4>
-              <p>Population: <span>${country.population.toLocaleString("en-IN")}</span></p>
-              <p>Region: <span>${country.region}</span></p>
-              <p>Capital: <span>${country.capital}</span></p>
-          </div>
-      `;
+          let card = createCard(country)
           hero.innerHTML += card;
         });
       })
@@ -103,3 +113,24 @@ search.addEventListener("keyup", function () {
         console.log(err);
       });
 });
+
+
+
+select.addEventListener('change', function() {
+    let value = select.value
+
+    fetch(`https://frontend-mentor-apis-6efy.onrender.com/countries?region=${value}`, {
+        method: "GET"
+    })
+
+    .then((data) => data.json())
+
+    .then(data => {
+        console.log(data);
+        hero.innerHTML = ''
+        data.data.forEach(country => {
+            let card = createCard(country);
+            hero.innerHTML += card;
+        });
+    })
+})
